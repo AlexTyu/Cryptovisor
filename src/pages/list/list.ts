@@ -1,35 +1,41 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
+import { Http, Headers } from '@angular/http';
+
+import * as bittrex from 'api-bittrex';
+
+
 @Component({
   selector: 'page-list',
-  templateUrl: 'list.html'
+  templateUrl: 'list.html',
 })
+
+
+
+
+
+
 export class ListPage {
   selectedItem: any;
   icons: string[];
-  items: Array<{title: string, note: string, icon: string}>;
+  tokens: Array<{title: string, note: string, icon: string}>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    // If we navigated to this page, we will have an item available as a nav param
-    this.selectedItem = navParams.get('item');
 
-    // Let's populate this page with some filler content for funzies
-    this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
-    'american-football', 'boat', 'bluetooth', 'build'];
+    // bittrex.getmarketsummaries( function( data, err ) {
+    //   console.log( data );
+    // });
 
-    this.items = [];
-    for (let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Item ' + i,
-        note: 'This is item #' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
-    }
+    var httpCall = this.http
+                   .get('/getmarkets', JSON.stringify(body), {headers: headers});
+                   //.map(res => res.json());
+
+    return httpCall;
   }
 
+
   itemTapped(event, item) {
-    // That's right, we're pushing to ourselves!
     this.navCtrl.push(ListPage, {
       item: item
     });
