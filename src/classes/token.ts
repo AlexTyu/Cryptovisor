@@ -1,3 +1,5 @@
+import { Link } from './link'
+
 export class Token {
   name: string;
   marketName: string;

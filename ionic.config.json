@@ -4,11 +4,6 @@
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
-  },
-  "proxies": [
-    {
-      "path": "/api",
-      "proxyUrl": "https://bittrex.com/api/v1.1/public/"
-    }
-  ]
+  }
+
 }

@@ -20,7 +20,7 @@ export class RestapiServiceProvider {
   realtimeData: any;
 
   constructor(private http: Http) {
-    this.apiUrl = 'https://bittrex.com/api/v1.1/public';
+    this.apiUrl = 'http://138.197.211.254:3000/api';
   }
 
   //DO NOT CHANGE!!
@@ -32,6 +32,7 @@ export class RestapiServiceProvider {
       this.http.get(this.apiUrl + '/getmarkets')
         .map(res => res.json())
         .subscribe(data => {
+          console.log(data);
           this.data = data.result;
           resolve(this.data);
         });
@@ -46,7 +47,9 @@ export class RestapiServiceProvider {
       this.http.get(this.apiUrl + '/getmarketsummary?market=' + token.marketName)
         .map(res => res.json())
         .subscribe(realtimeData => {
-          token.marketData = realtimeData.result[0];
+          console.log(realtimeData);
+
+          // token.marketData = realtimeData.result[0];
         });
     });
   }
