@@ -14,3 +14,28 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+body{
+  background: #1a2830;
+  color: white;
+}
+
+.toolbar-background{
+  background: transparent !important;
+  border-bottom: 0px;
+}
+
+ion-header{
+  transition: 0.2s;
+  // background: black;
+  height: 60px;
+
+  &.hidden{
+    // transform: translateY(-20px);
+    // opacity: 0;
+  }
+}
+
+.back-button{
+  display: none !important;
+}

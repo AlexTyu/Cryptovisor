@@ -1,34 +1,26 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
+
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-
-
-// import { HTTP } from '@ionic-native/http';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+
+import { HttpModule } from '@angular/http';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
-// import * as bittrex from 'api-bittrex';
-
-export class Token{
-  title: String;
-  note: String;
-  icon: String;
-}
+import { RestapiServiceProvider } from '../providers/restapi-service/restapi-service';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    ListPage
+    HomePage
   ],
 
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp)
   ],
 
@@ -36,14 +28,14 @@ export class Token{
 
   entryComponents: [
     MyApp,
-    HomePage,
-    ListPage
+    HomePage
   ],
 
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    RestapiServiceProvider
   ]
 })
 
